@@ -127,7 +127,52 @@ public class Main {
 					menu.showMenu();
 					op = menu.getOp();
 					break;
-					
+				case 6:
+					if (posts.size() == 0) {
+						System.out.println("Nenhum post realizado ainda.");
+					} else {
+						int contador = 1;
+						for (Post post : posts) {
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+						System.out.print("Digite o número do Post que você quer dar like: ");
+						int numeroPost = sc.nextInt();
+						for (Post post: posts) {
+							if (posts.indexOf(post) == (numeroPost-1)) {
+								post.darLike();
+								System.out.println("Like!! Osss");
+							} else {
+								System.out.println("Esse Post não existe.");
+							}
+						}
+					}
+					menu.showMenu();
+					op = menu.getOp();
+					break;
+				case 7:
+					if (posts.size() == 0) {
+						System.out.println("Nenhum post realizado ainda.");
+					} else {
+						int contador = 1;
+						for (Post post : posts) {
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+						System.out.print("Digite o número do Post que você quer remover o like: ");
+						int numeroPost = sc.nextInt();
+						for (Post post: posts) {
+							if (posts.indexOf(post) == (numeroPost-1)) {
+								post.unLike();
+								System.out.println("Like removido.");
+							} else {
+								System.out.println("Esse Post não existe.");
+							}
+						}
+					}
+					menu.showMenu();
+					op = menu.getOp();
+					break;
 			}
 		}
 		System.out.println();

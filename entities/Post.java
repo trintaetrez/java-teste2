@@ -85,4 +85,14 @@ public class Post {
 		return sb.toString();
 	}
 	
+	public void darLike() {
+		likes++;
+	}
+	
+	public void unLike() {
+		if (likes != 0) {
+			likes--;
+		}
+	}
+	
 }

@@ -29,7 +29,9 @@ public class Menu {
 						 + "[2] - Remover Post\n"
 						 + "[3] - Listar Posts\n"
 						 + "[4] - Comentar Post\n"
-						 + "[5] - Deletar comentário");
+						 + "[5] - Deletar comentário\n"
+						 + "[6] - Dar Like\n"
+						 + "[7] - Remover Like");
 		op = scanner.nextInt();
 		
 		while (op < 0 || op > 7) {
