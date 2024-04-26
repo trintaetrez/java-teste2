@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Comment;
 import entities.Post;
 import utilities.Menu;
 
@@ -45,12 +46,82 @@ public class Main {
 					menu.showMenu();
 					op = menu.getOp();
 					break;
+				case 2:
+					if (posts.size() == 0) {
+						System.out.println("Nenhum post realizado ainda.");
+					} else {
+						int contador = 1;
+						for (Post post : posts) {
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+						System.out.print("Digite o número do post a ser removido: ");
+						int postRemovido = sc.nextInt();
+						posts.remove(postRemovido - 1);
+						System.out.println("Post removido.");
+					}
+					menu.showMenu();
+					op = menu.getOp();
+					break;
 				case 3:
 					if (posts.size() == 0) {
 						System.out.println("Nenhum post realizado ainda.");
 					} else {
+						int contador = 1;
 						for (Post post : posts) {
-							System.out.println(post.toString());
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+					}
+					menu.showMenu();
+					op = menu.getOp();
+					break;
+				case 4:
+					if (posts.size() == 0) {
+						System.out.println("Nenhum post realizado ainda.");
+					} else {
+						int contador = 1;
+						for (Post post : posts) {
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+						System.out.print("Digite o número do Post que você quer comentar: ");
+						int numeroPost = sc.nextInt();
+						for (Post post: posts) {
+							if (posts.indexOf(post) == (numeroPost-1)) {
+								System.out.print("Digite o comentário: ");
+								sc.nextLine();
+								String comentario = sc.nextLine();
+								post.AddComment(new Comment(comentario));
+								System.out.println("Comentário adicionado.");
+							} else {
+								System.out.println("Esse Post não existe.");
+							}
+						}
+					}
+					menu.showMenu();
+					op = menu.getOp();
+					break;
+				case 5:
+					if (posts.size() == 0) {
+						System.out.println("Nenhum post realizado ainda.");
+					} else {
+						int contador = 1;
+						for (Post post : posts) {
+							System.out.println(contador + " - " + post.toString());
+							contador++;
+						}
+						System.out.print("Digite o número do Post que você quer remover o comentário: ");
+						int numeroPost = sc.nextInt();
+						for (Post post: posts) {
+							if (posts.indexOf(post) == (numeroPost-1)) {
+								System.out.print("Digite o número do comentário que você quer remover: ");
+								int comentario = sc.nextInt();
+								post.removeComment(comentario-1);
+								System.out.println("Comentário excluído.");
+							} else {
+								System.out.println("Esse Post não existe.");
+							}
 						}
 					}
 					menu.showMenu();

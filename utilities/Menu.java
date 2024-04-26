@@ -27,7 +27,9 @@ public class Menu {
 		System.out.println("[0] - Sair\n"
 						 + "[1] - Adicionar Post\n"
 						 + "[2] - Remover Post\n"
-						 + "[3] - Listar Posts");
+						 + "[3] - Listar Posts\n"
+						 + "[4] - Comentar Post\n"
+						 + "[5] - Deletar comentário");
 		op = scanner.nextInt();
 		
 		while (op < 0 || op > 7) {

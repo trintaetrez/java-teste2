@@ -2,7 +2,6 @@ package entities;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Post {
@@ -60,7 +59,15 @@ public class Post {
 
 	public List<Comment> getComments() {
 		return comments;
-	}	
+	}
+	
+	public void AddComment(Comment comment) {
+		comments.add(comment);
+	}
+	
+	public void removeComment(int comentario) {
+		comments.remove(comentario);
+	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -70,8 +77,10 @@ public class Post {
 		sb.append((moment) + "\n");
 		sb.append(content + "\n");
 		sb.append("Comments:\n");
+		int contador = 1;
 		for (Comment c : comments) {
-			sb.append(c.getText() + "\n");
+			sb.append("#" + contador + " - " + c.getText() + "\n");
+			contador++;
 		}
 		return sb.toString();
 	}
